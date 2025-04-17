@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --neutral-700: hsl(226, 11%, 37%);
+  --neutral: hsl(0, 0%, 78%);
+
+  --main-background: hsl(217, 61%, 90%);
+  --mode-background: hsl(0, 0%, 93%);
+  --header-background: hsl(200, 60%, 99%);
+
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: var(--main-background);
+}
+
+body.dark-theme {
+  --main-background: hsl(227, 75%, 14%);
+  --header-background: hsl(226, 25%, 17%);
+  --mode-background: hsl(225, 23%, 24%);
+}
+
+main {
+  margin: 1rem;
+}
+
+header {
+  background: var(--header-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem;
+  border-radius: .6rem;
+}
+
+header .mode {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  background: var(--mode-background);
+  border-radius: .6rem;
+  cursor: pointer;
+}
+
+header .mode img {
+  width: 20px;
+}
+
+.extensions {
+  color: var(--);
+}
+
+.extension-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.extension-heading h1 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.extension-heading ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.extension-heading ul li {
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
+  background: var(--header-background);
+}
+
+.extension-card {
+  background: var(--header-background);
+  border-radius: .8rem;
+  padding: 1.5rem;
+}
+
+.card-details {
+  display: flex;
+  gap: 1rem;
+  
+}
