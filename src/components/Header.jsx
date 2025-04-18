@@ -37,8 +37,8 @@ export default function Header() {
             </div>
             <div className="mode" onClick={toggleTheme}>
                 {theme === 'light' ? 
-                <img src="./src/assets/images/icon-moon.svg" alt="moon icon" /> :
-                <img src="./src/assets/images/icon-sun.svg" alt="moon icon" />
+                <img src="./assets/images/icon-moon.svg" alt="moon icon" /> :
+                <img src="./assets/images/icon-sun.svg" alt="moon icon" />
                 }
             </div>
         </header>

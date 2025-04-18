@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --neutral-700: hsl(226, 11%, 37%);
-  --neutral: hsl(0, 0%, 78%);
-
   --main-background: hsl(217, 61%, 90%);
   --mode-background: hsl(0, 0%, 93%);
   --header-background: hsl(200, 60%, 99%);
+  --text-color: hsl(227, 75%, 14%);
+  --paragraph-color: hsl(226, 11%, 37%);
+  --li-background: hsl(200, 60%, 99%);
 
-  --red-400: hsl(3, 86%, 64%);
-  --red-500: hsl(3, 71%, 56%);
-  --red-700: hsl(3, 77%, 44%);
+  --hover-color: hsl(3, 86%, 64%);
+  --focus-color: hsl(3, 71%, 56%);
+  --active-color: hsl(3, 77%, 44%);
 }
 
 * {
@@ -28,6 +28,9 @@ body.dark-theme {
   --main-background: hsl(227, 75%, 14%);
   --header-background: hsl(226, 25%, 17%);
   --mode-background: hsl(225, 23%, 24%);
+  --text-color: hsl(200, 60%, 99%);
+  --paragraph-color: hsl(0, 0%, 78%);
+  --li-background: hsl(225, 23%, 24%);
 }
 
 main {
@@ -41,6 +44,7 @@ header {
   justify-content: space-between;
   padding: .8rem;
   border-radius: .6rem;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
 }
 
 header .mode {
@@ -53,12 +57,16 @@ header .mode {
   cursor: pointer;
 }
 
+header .mode:hover {
+  background: #C6C6C5;
+}
+
 header .mode img {
   width: 20px;
 }
 
 .extensions {
-  color: var(--);
+  color: var(--text-color);
 }
 
 .extension-heading {
@@ -81,18 +89,79 @@ header .mode img {
 .extension-heading ul li {
   padding: 1rem 1.5rem;
   border-radius: 30px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
-  background: var(--header-background);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  background: var(--li-background);
+  font-weight: 500;
+}
+
+.extension-heading ul li:focus {
+  
+}
+
+.extension-heading ul li.active {
+  background: var(--active-color);
+  color: var(--header-background);
+  border: 2px solid var(--focus-color);
+}
+
+.extension-heading ul li:hover {
+  background: var(--hover-color);
+  color: var(--header-background);
 }
 
 .extension-card {
   background: var(--header-background);
   border-radius: .8rem;
   padding: 1.5rem;
+  border: 1px solid var(--mode-background);
+  margin-bottom: 1rem;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
 }
 
 .card-details {
   display: flex;
   gap: 1rem;
+  align-items: flex-start;
+}
+
+.card-details p {
+  margin: .5rem 0;
+  color: var(--paragraph-color);
+}
+
+.card-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .8rem;
+}
+
+.card-features button {
+  font-family: inherit;
+  background: transparent;
+  padding: .5rem 1rem;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.card-features button:focus {
+  border: 2px solid var(--focus-color);
+}
+
+.card-features button:hover {
+  background: var(--hover-color);
+  color: var(--header-background);
+}
+
+.card-features i {
+  font-size: 25px;
+  color: var(--active-color);
+}
+
+.card-features i:focus {
   
 }
