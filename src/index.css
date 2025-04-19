@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --main-background: hsl(217, 61%, 90%);
+  --main-background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   --mode-background: hsl(0, 0%, 93%);
+  --mode-hover-background: #C6C6C7;
   --header-background: hsl(200, 60%, 99%);
   --text-color: hsl(227, 75%, 14%);
   --paragraph-color: hsl(226, 11%, 37%);
-  --li-background: hsl(200, 60%, 99%);
+  --button-background: hsl(200, 60%, 99%);
+  --button-hover-background: hsl(200, 60%, 100%);
+  --button-hover-text-color: hsl(226, 11%, 37%);
 
-  --hover-color: hsl(3, 86%, 64%);
+  --active-color: hsl(3, 86%, 64%);
   --focus-color: hsl(3, 71%, 56%);
-  --active-color: hsl(3, 77%, 44%);
+  --hover-color: hsl(3, 77%, 44%);
 }
 
 * {
@@ -25,12 +28,15 @@ body {
 }
 
 body.dark-theme {
-  --main-background: hsl(227, 75%, 14%);
+  --main-background: linear-gradient(180deg, #040918 0%, #091540 100%);
   --header-background: hsl(226, 25%, 17%);
   --mode-background: hsl(225, 23%, 24%);
+  --mode-hover-background: #52576B;
   --text-color: hsl(200, 60%, 99%);
   --paragraph-color: hsl(0, 0%, 78%);
-  --li-background: hsl(225, 23%, 24%);
+  --button-background: hsl(225, 23%, 24%);
+  --button-hover-background: #52576B;
+  --button-hover-text-color: hsl(200, 60%, 99%);
 }
 
 main {
@@ -43,7 +49,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: .8rem;
-  border-radius: .6rem;
+  border-radius: .7rem;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
 }
 
@@ -58,7 +64,7 @@ header .mode {
 }
 
 header .mode:hover {
-  background: #C6C6C5;
+  background: var(--mode-hover-background);
 }
 
 header .mode img {
@@ -79,35 +85,46 @@ header .mode img {
   margin-bottom: 1rem;
 }
 
-.extension-heading ul {
-  list-style: none;
+.extension-heading .buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.extension-heading ul li {
+.extension-heading button {
   padding: 1rem 1.5rem;
   border-radius: 30px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
-  background: var(--li-background);
+  background: var(--button-background);
   font-weight: 500;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text-color);
+  outline: 0;
 }
 
-.extension-heading ul li:focus {
-  
-}
-
-.extension-heading ul li.active {
+.extension-heading button.active {
   background: var(--active-color);
   color: var(--header-background);
-  border: 2px solid var(--focus-color);
 }
 
-.extension-heading ul li:hover {
+.extension-heading button.active:hover {
   background: var(--hover-color);
   color: var(--header-background);
 }
+
+.extension-heading button:hover {
+  background: var(--button-hover-background);
+  color: var(--button-hover-text-color);
+}
+
+.extension-heading button:focus {
+  border: 2px solid var(--focus-color);
+  background: var(--active-color);
+  color: var(--header-background);
+} 
 
 .extension-card {
   background: var(--header-background);
@@ -116,6 +133,9 @@ header .mode img {
   border: 1px solid var(--mode-background);
   margin-bottom: 1rem;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-details {
@@ -125,7 +145,7 @@ header .mode img {
 }
 
 .card-details p {
-  margin: .5rem 0;
+  margin: .5rem 0 2rem 0;
   color: var(--paragraph-color);
 }
 
@@ -136,6 +156,10 @@ header .mode img {
   margin-top: .8rem;
 }
 
+.card-features img {
+  cursor: pointer;
+}
+
 .card-features button {
   font-family: inherit;
   background: transparent;
@@ -143,9 +167,10 @@ header .mode img {
   border-radius: 30px;
   border: 1px solid #ccc;
   color: var(--text-color);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 15px;
   cursor: pointer;
+  outline: 0;
 }
 
 .card-features button:focus {
@@ -157,11 +182,51 @@ header .mode img {
   color: var(--header-background);
 }
 
-.card-features i {
-  font-size: 25px;
-  color: var(--active-color);
+@media (min-width: 768px) {
+  main {
+    margin: 1.5rem 2.5rem;
+  }
+
+  header {
+    border-radius: 1rem;
+  }
+
+  .extension-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0 2rem 0;
+  }
+
+  .extension-heading ul li {
+    display: flex;
+    align-items: center;
+    height: 43px;
+  }
+
+  .extension-heading h1 {
+    margin: 0;
+  }
+
+  .extension-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
-.card-features i:focus {
-  
+@media (min-width: 1024px) {
+  main {
+    margin: 1.5rem 3.5rem;
+  }
+
+  .extension-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  main {
+    margin: 1.5rem 7rem;
+  }
 }
